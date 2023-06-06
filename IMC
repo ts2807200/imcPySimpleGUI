@@ -1,0 +1,16 @@
+import PySimpleGUI as sg
+layout=[
+  [sg.Text("Massa"),sg.Input(key="massa")],
+  [sg.Text("Altura"),sg.Input(key="altura")],
+  [sg.Button("Calcular")]
+]
+janela=sg.Window("IMC",layout)
+while True:
+  eventos,valores=janela.read()
+  if eventos==sg.WINDOW_CLOSED:
+    break
+  massa=float(valores["massa"])
+  altura=float(valores["altura"])
+  conta=massa/(altura**2)
+  sg.Popup(f"eu imc {conta}")
+    
